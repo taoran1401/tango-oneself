@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package protopb;
+
+option go_package="../protopb;protopb";
+
+//OnlineList
+message OnlineListReq {
+  string nickname = 1;
+}
+
+message OnlineListResp {
+  repeated UserInfo user_list = 1;
+}
+
+//ApplyVs
+message ApplyVsReq {
+  uint64 target_user_id = 1;
+}
+
+message ApplyVsResp {
+  UserInfo user_info = 1;
+  UserInfo target_user_info = 2;
+  uint32 status = 3;  //0 ing; 1: response
+  uint64 room = 4;
+}
+
+//VsResp
+message VsRespReq {
+  uint64 room = 1;
+  uint32 action = 2;//0:reject 1:accept
+}
+
+message VsRespResp {
+  uint32 is_success = 1;  //0:failed; 1: success
+}
+
+//Chess
+message ChessReq {
+  uint64 room = 1;
+  uint64 user_id = 2;
+  int32 x = 3;
+  int32 y = 4;
+}
+
+message ChessResp {
+  bool is_win = 1;
+  int32 color = 2;
+}
+
+//Surrender
+message SurrenderReq {
+  string target_user_id = 1;
+}
+
+message SurrenderResp {
+  bool status = 1;  //1:accept 2:reject 3:timeout
+}
+
+//
+message UserInfo {
+  uint64 id = 1;
+  string nickname = 2;
+  string Avatar = 3;
+  int64 Sex = 4;
+}

@@ -1,0 +1,51 @@
+App:
+  AppName: taogin-demo
+  Debug: true
+  Port: 8088
+Zap:
+  Level: debug
+  Prefix: '[taogin]'
+  Format: console
+  Director: runtime/log
+  Encode-level: LowercaseColorLevelEncoder
+  Stacktrace-key: stacktrace
+  MaxAge: 30
+  ShowLine: true
+  LogInConsole: true
+Email:
+  Host: smtp.xxx.com            #smtp host
+  Port: 465                     #smtp端口
+  IsSsl: true                   #smtp ssl
+  Username: xxxx@xxx.com        #账号
+  Password: xxxx                #smtp授权码、密码（非邮箱密码）
+  From: xxx@xxx.com             #发件人
+  Nickname: xxx                 #发件人昵称
+Jwt:
+  SigningKey: 9f15b258-96c4-48d6-be86-eb5a1a465f44
+  ExpiresTime: 604800
+  BufferTime: 86400
+  Issuer: qmPlus
+MongoDB:
+  - AliasName: 'xxx'
+    Uri: 'mongodb://xxx:xxx@127.0.0.1:27017/xxx'
+Mysql:
+  - AliasName: 'xxx'
+    Uri: 'xxx:xxx@tcp(127.0.0.1:3306)/gva?charset=utf8&parseTime=True&loc=Local'
+    MaxIdleConns: 10
+    MaxOpenConns: 100
+Redis:
+  - AliasName: 'xxx'
+    Addr: 127.0.0.1:6379
+    Password: "xxx"
+    DB: 1
+RabbitMQ:
+  - AmqpUrl: "amqp://xxx:xxx@127.0.0.1:5672/xxx"
+    #url格式 amqp://账号:密码@rabbitmq服务器地址:端口号/vhost
+    # 框架批量处理用
+    QueueName: 'xxx'
+    ExchangeName: 'xxx'
+    ExchangeType: fanout
+    ExchangeDurable: true
+    RoutingKey: ""
+    Durable: true
+    RunQuantity: 1

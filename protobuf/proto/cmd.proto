@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package protopb;
+
+option go_package = "../protopb;protopb";
+
+enum CmdBase {
+  //错误
+  CmdBaseErr = 0;
+  //网络连接
+  CmdBaseConn = 1;
+  //版本更新
+  CmdBaseVersion = 2;
+  //online list
+  CmdBaseOnlineList = 3;
+  //apply vs
+  CmdBaseApplyVs = 4;
+  //response vs
+  CmdBaseVsResp = 5;
+  //move chess
+  CmdBaseChess = 6;
+  //surrender
+  CmdBaseSurrender = 7;
+}

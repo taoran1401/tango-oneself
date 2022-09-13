@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package social.api.ws;
+
+option go_package="/;social_api_ws";
+
+// 评论
+enum CmdEveluate {
+    CmdEveluateEveluateReq = 0;
+    CmdEveluateEveluateResp = 1;
+}
+
+service Eveluate {
+    // 通话评价
+	rpc CallEveluate(EveluateReq) returns (EveluateResp) {}
+}
+
+// 评价请求
+message EveluateReq {
+  //分数
+  uint64 score = 1;
+  //印象tag, '-' 分割开
+  string tags = 2;
+  //主播id
+  uint64 anchor_id = 3;
+  //订单id
+  uint64 order_id = 4;
+}
+
+// 评论返回
+message EveluateResp {
+  bool suc = 1;
+}

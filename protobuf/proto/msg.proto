@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package protopb;
+
+option go_package="../protopb;protopb";
+
+message Msg {
+	uint32 cmd = 1;
+	int64  req_uid = 2;
+	int64  tms = 3;
+	bytes  data = 4;	
+}

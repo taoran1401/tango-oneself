@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package social.api.ws;
+
+option go_package="/;social_api_ws";
+
+message Msg {
+	uint32 cmd = 1;
+	int64  req_uid = 2;
+	int64  tms = 3;
+	bytes  data = 4;	
+}
