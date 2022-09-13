@@ -12,6 +12,14 @@ Zap:
   MaxAge: 30
   ShowLine: true
   LogInConsole: true
+# cache
+Cache:
+  Prefix: "c:"
+# aliyun sms
+Sms:
+  AccessKeyId: "xxxx"
+  AccessKeySecret: "xxxxxx"
+  SignName: "xxxx"
 Email:
   Host: smtp.xxx.com            #smtp host
   Port: 465                     #smtp端口
@@ -49,3 +57,7 @@ RabbitMQ:
     RoutingKey: ""
     Durable: true
     RunQuantity: 1
+#定时任务时间配置 秒 分 时 日 月 周(0代表周日)
+Crontab:
+  TestTask: "*/3 * * * * *"  # 测试
+  TestTaskTwo: "*/3 * * * * *"

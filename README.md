@@ -17,14 +17,6 @@
 - [x] 邮件
 - [x] 缓存(基于redis)
 - [x] 阿里云短信
-- [x] websocket+protobuf支持
-```
-
-优化：
-```
-- [ ] 插件化开发
-- [ ] 文件上传(本地, 阿里云OSS)
-- [ ] 程序关闭后关闭redis，mysql等连接
-- [ ] 处理定时任务重复执行问题，redis，mysql对象单例实现
-- [ ] 防刷限流(令牌桶实现)
+- [x] websocket
+- [x] protobuf
 ```
