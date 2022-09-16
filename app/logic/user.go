@@ -46,10 +46,6 @@ func (this *UserLogic) Update(id string, req *types.UserShowReq) (bool, error) {
 	return true, nil
 }
 
-func (this *UserLogic) UpdatePassword() {
-
-}
-
 func (this *UserLogic) CheckUser(id string) error {
 	var users model.Users
 	//获取数据

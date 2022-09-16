@@ -59,6 +59,32 @@ func (this *LoginController) Login(ctx *gin.Context) {
 	response.Success(ctx, resp)
 }
 
+func (this *LoginController) Register(ctx *gin.Context) {
+	var (
+		req  types.RegisterReq
+		resp *types.RegisterResp
+	)
+
+	if err := ctx.ShouldBindJSON(&req); err != nil {
+		global.LOG.Error("register:" + err.Error())
+		response.Error(ctx, atom.ERROR_CODE_PARAM, atom.GetMsgByCode(atom.ERROR_CODE_PARAM))
+		return
+	}
+
+	//手机验证
+	if !utils.VerifyPhoneFormat(req.Phone) {
+		response.Error(ctx, atom.ERROR_CODE_PARAM, "手机号码格式错误")
+		return
+	}
+
+	resp, err := logic.NewLoginLogic().Register(&req)
+	if err != nil {
+		response.Error(ctx, atom.ERROR_CODE_PARAM, err.Error())
+		return
+	}
+	response.Success(ctx, resp)
+}
+
 //发送验证码
 func (this *LoginController) SendPhoneCode(ctx *gin.Context) {
 	var req types.SendPhoneCodeReq

@@ -47,6 +47,9 @@ func (this *Server) ServerRun() {
 	// load router
 	var routerCore Router
 	router := routerCore.Routers()
+	//设置静态文件目录和模板文件目录
+	router.Static("/assets", "storage/assets")
+	router.LoadHTMLGlob("templates/**/*")
 	// 优雅的重启服务
 	// - 不关闭现有连接（正在运行中的程序）
 	// - 新的进程启动并替代旧进程
@@ -56,7 +59,7 @@ func (this *Server) ServerRun() {
 	srv := endless.NewServer(address, router)
 	srv.ReadHeaderTimeout = 10 * time.Second
 	srv.WriteTimeout = 10 * time.Second
-	srv.MaxHeaderBytes = 1 << 14 //左移：相当于1*2^14； 16k左右
+	srv.MaxHeaderBytes = 1 << 16 //左移：相当于1*2^16
 	global.LOG.Error(srv.ListenAndServe().Error())
 }
 

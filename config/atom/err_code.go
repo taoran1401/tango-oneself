@@ -8,5 +8,6 @@ const (
 	ERROR_CODE_JSON          = 1003 //json处理失败
 	ERROR_CODE_EXCEPTION     = 1003 //处理异常失败
 	ERROR_CODE_SMS           = 1010 //短信失败
+	ERROR_CODE_UPLOAD_FAILE  = 1011 //文件上传失败
 	ERROR_CODE_DATA_NOT_FIND = 6000 //数据不存在
 )

@@ -10,6 +10,7 @@ func init() {
 	RetCodeMap[ERROR_CODE_JSON] = "json处理失败"
 	RetCodeMap[ERROR_CODE_EXCEPTION] = "处理异常失败"
 	RetCodeMap[ERROR_CODE_SMS] = "短信错误"
+	RetCodeMap[ERROR_CODE_UPLOAD_FAILE] = "文件上传失败"
 	RetCodeMap[ERROR_CODE_DATA_NOT_FIND] = "数据不存在"
 }
 
